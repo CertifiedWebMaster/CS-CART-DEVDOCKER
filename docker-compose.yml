@@ -22,24 +22,10 @@ services:
       - "80:80"
       - "443:443"
     depends_on:
-      - php7.3
       - php7.4
       - php8.0
       - php8.1
       - php8.2
-
-  php7.3:
-    build:
-      context: ./config/php7.3
-      dockerfile: Dockerfile
-    container_name: php7.3
-    working_dir: /app
-    volumes:
-      - ./app:/app
-      - ./config/php7.3/php-ini-overrides.ini:/usr/local/etc/php/conf.d/00-php.ini
-      - ./bin/sendmail:/usr/local/bin/sendmail
-    environment:
-        PHP_IDE_CONFIG: serverName=localhost
 
   php7.4:
     build:
